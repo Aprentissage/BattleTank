@@ -21,8 +21,13 @@ void ATankPlayerControer::BeginPlay()
 void ATankPlayerControer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("Coucou"));
+	AimTowardsCrosshair();
+	
+}
 
+void ATankPlayerControer::AimTowardsCrosshair()
+{
+	if (!GetControlledTank()) { return; }
 }
 
 ATank* ATankPlayerControer::GetControlledTank() const
