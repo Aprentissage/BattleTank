@@ -18,6 +18,13 @@ void ATankPlayerControer::BeginPlay()
 	}
 }
 
+void ATankPlayerControer::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("Coucou"));
+
+}
+
 ATank* ATankPlayerControer::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
