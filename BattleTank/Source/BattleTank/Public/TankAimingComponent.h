@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Actor.h"
 #include "CoreMinimal.h"
@@ -17,7 +18,7 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
-	void AimAt(FVector Hitlocation);
+	void AimAt(FVector Hitlocation, float LaunchSpeed);
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
