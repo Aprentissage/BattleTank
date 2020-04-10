@@ -2,12 +2,13 @@
 
 #pragma once
 
-#include "Engine/World.h"
-#include "Tank.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerControer.generated.h"
 
+//forward decleration
+class ATank;
 /**
  * 
  */

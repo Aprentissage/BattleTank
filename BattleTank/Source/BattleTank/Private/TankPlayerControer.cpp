@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Engine/World.h"
+#include "BattleTank/Public/Tank.h"
 #include "BattleTank/Public/TankPlayerControer.h"
 
 void ATankPlayerControer::BeginPlay()
