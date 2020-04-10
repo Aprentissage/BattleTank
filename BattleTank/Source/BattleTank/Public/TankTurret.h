@@ -20,12 +20,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxDegreesPerSecond = 5; // Sensible default
+	float MaxDegreesPerSecond = 20; // Sensible default
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxAzimuthDegrees = 40; // Sensible default
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	float MinAzimuthDegrees = 0; // Sensible default
-	
 };
