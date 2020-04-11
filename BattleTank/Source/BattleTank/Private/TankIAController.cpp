@@ -10,35 +10,20 @@ void ATankIAController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto PCTank = GetPlayerTank();
-	if (!PCTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController not Finding the PCtank"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController Found the PCTank as: %s"), *(PCTank->GetName()));
-	}
 }
 
 void ATankIAController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (!GetControlledTank()) { return; }
+	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	auto ControlledTank = Cast<ATank>(GetPawn());
+	if (!PlayerTank) { return; }
 	else	
 	{
-		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		ControlledTank->AimAt(ControlledTank->GetActorLocation() * FVector(-1, 1, 1));
+		ControlledTank->fire();
 	}
 }
 
-ATank* ATankIAController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
 
-ATank* ATankIAController::GetPlayerTank() const
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerPawn) { return nullptr; }
-	return Cast<ATank>(PlayerPawn);
-}
+
