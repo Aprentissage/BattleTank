@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Engine/World.h"
 #include "BattleTank/Public/TankAimingComponent.h"
 #include "BattleTank/Public/Tank.h"
 
@@ -33,6 +34,12 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ATank::AimAt(FVector Hitlocation)
 {
 	TankAimingComponent->AimAt(Hitlocation, LaunchSpeed);
+}
+
+void ATank::fire()
+{
+	auto Time = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("%f: tank fires"), Time);
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)

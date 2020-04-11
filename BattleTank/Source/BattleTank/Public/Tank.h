@@ -21,13 +21,18 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	void AimAt(FVector Hitlocation);
+	
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurretReference(UTankTurret* TurretToSet);
+
+	void AimAt(FVector Hitlocation);
+
+	UFUNCTION(BlueprintCallable, Category = Firing)
+	void fire();
 
 protected:
 	// Called when the game starts or when spawned
