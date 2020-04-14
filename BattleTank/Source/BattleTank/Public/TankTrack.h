@@ -20,6 +20,6 @@ public:
 
 	// Max Force per Track
 	UPROPERTY(EditDefaultsOnly)
-	float TrackMaxDringForce = 400000; // Assume 40 tonnes, and 1g accélération
+	float TrackMaxDringForce = 40000000; // Assume 40 tonnes, and 1g accélération
 	
 };
