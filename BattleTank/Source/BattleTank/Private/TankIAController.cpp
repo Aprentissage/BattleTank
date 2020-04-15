@@ -20,6 +20,7 @@ void ATankIAController::Tick(float DeltaTime)
 	if (!PlayerTank) { return; }
 	else	
 	{
+		MoveToActor(PlayerTank, AcceptanceRadius);
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 		ControlledTank->fire();
 	}
