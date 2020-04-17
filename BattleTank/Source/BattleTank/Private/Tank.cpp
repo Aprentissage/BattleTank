@@ -4,7 +4,7 @@
 #include "BattleTank/Public/TankAimingComponent.h"
 #include "BattleTank/Public/Tank.h"
 #include "BattleTank/Public/Projectile.h"
-#include "TankMouvementComponent.h"
+
 
 // Sets default values
 ATank::ATank()
@@ -14,11 +14,6 @@ ATank::ATank()
 
 	
 }
-
-
-
-
-
 
 
 void ATank::AimAt(FVector Hitlocation)
