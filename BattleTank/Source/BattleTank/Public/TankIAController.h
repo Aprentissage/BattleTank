@@ -7,8 +7,7 @@
 #include "AIController.h"
 #include "TankIAController.generated.h"
 
-//Forward declerations
-class ATank;
+
 
 /**
  * 

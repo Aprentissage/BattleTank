@@ -8,9 +8,7 @@
 #include "Tank.generated.h"
 
 //Forward declerations
-class UTankTurret;
 class UTankBarrel;
-class UTankAimingComponent;
 class AProjectile;
 
 
@@ -24,21 +22,15 @@ public:
 	ATank();
 	virtual void BeginPlay() override;
 
-	void AimAt(FVector Hitlocation);
-
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void fire();
 
-protected:
-
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 
 private:	
 
 
-	UPROPERTY(EditAnywhere, Category = "Firing")
+	//UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 40000; // 1000m/s
 
 	UPROPERTY(EditAnywhere, Category = "Firing")
