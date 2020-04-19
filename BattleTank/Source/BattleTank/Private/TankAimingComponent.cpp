@@ -39,10 +39,17 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	}
 }
 
+int UTankAimingComponent::GetRoundsLeft() const
+{
+	return RoundsLeft;
+}
+
 EFiringState UTankAimingComponent::GetFiringState() const
 {
 	return FiringState;
 }
+
+
 
 
 bool UTankAimingComponent::IsBarrelMoving()
@@ -110,7 +117,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector OUTAimDirection)
 void UTankAimingComponent::fire()
 {
 	
-	if (FiringState !=EFiringState::Reloading)
+	if (FiringState == EFiringState::Locked || FiringState == EFiringState::Aiming)
 	{
 		if (!ensure(Barrel)) { return; }
 		if (!ensure(ProjectileBlueprint)) { return; }
@@ -121,6 +128,7 @@ void UTankAimingComponent::fire()
 			);
 		Projectile->LaunchProjectile(LaunchSpeed);
 		LastFireTime = FPlatformTime::Seconds();
+		RoundsLeft--;
 	}
 }
 
