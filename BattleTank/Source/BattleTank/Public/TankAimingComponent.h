@@ -35,6 +35,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void fire();
+
+	EFiringState GetFiringState() const;
 	
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -48,7 +50,6 @@ private:
 
 	//test
 	void MoveBarrelTowards(FVector OUTAimDirection);
-	void MoveTurretTowards(FVector AimRotation);
 	bool IsBarrelMoving();
 
 	UTankBarrel* Barrel = nullptr;
