@@ -1,8 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
+
+
 #include "BattleTank/Public/TankBarrel.h"
 #include "Engine/World.h"
 #include "BattleTank/Public/Tank.h"
 #include "BattleTank/Public/Projectile.h"
+
+
 
 
 // Sets default values
@@ -15,4 +19,16 @@ ATank::ATank()
 }
 
 
+float ATank::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	int32 DamagePoints = FPlatformMath::RoundToInt(DamageAmount);
+	int32 DamageToApply = FMath::Clamp(DamagePoints, 0, CurrentHealth);
 
+	CurrentHealth -= DamageToApply;
+	if (CurrentHealth <= 0)
+	{
+
+	}
+
+	return DamageToApply;
+}
