@@ -9,6 +9,11 @@
 
 
 
+float ATank::GetHealthPercent() const
+{
+	return (float)CurrentHealth / (float)StartingHealth; // -> cast int32 CurrentHealth and StartingHealth to float (float)XXXX
+}
+
 // Sets default values
 ATank::ATank()
 {
