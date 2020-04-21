@@ -1,8 +1,25 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+#include "Tank.h"
 #include "TankAimingComponent.h" 
 #include "Engine/World.h"
 #include "BattleTank/Public/TankPlayerControer.h"
+
+void ATankPlayerControer::SetPawn(APawn* InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		auto PossessedTank = Cast<ATank>(InPawn);
+		if (!ensure(PossessedTank)) { return; }
+		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerControer::OnPossedDeath);
+	}
+	
+}
+
+void ATankPlayerControer::OnPossedDeath()
+{
+	StartSpectatingOnly();
+}
 
 void ATankPlayerControer::BeginPlay()
 {
@@ -49,6 +66,8 @@ bool ATankPlayerControer::GetSightRayHitLocation(FVector& HitLocation) const
 	}
 	return false;
 }
+
+
 
 bool ATankPlayerControer::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {

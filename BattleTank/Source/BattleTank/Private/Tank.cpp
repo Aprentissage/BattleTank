@@ -23,6 +23,12 @@ ATank::ATank()
 	
 }
 
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+	CurrentHealth = StartingHealth;
+}
+
 
 float ATank::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
@@ -32,7 +38,7 @@ float ATank::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, ACo
 	CurrentHealth -= DamageToApply;
 	if (CurrentHealth <= 0)
 	{
-
+		OnDeath.Broadcast();
 	}
 
 	return DamageToApply;

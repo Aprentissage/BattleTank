@@ -19,8 +19,7 @@ class BATTLETANK_API ATankIAController : public AAIController
 	
 public:
 
-	virtual void BeginPlay() override;
-	virtual void Tick(float DeltaTime) override;
+
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
@@ -28,5 +27,11 @@ protected:
 
 private:
 
+	virtual void BeginPlay() override;
+	virtual void SetPawn(APawn* InPawn) override;
+	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+	void OnPossedDeath();
 
 };
