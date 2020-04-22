@@ -37,7 +37,7 @@ void ATankIAController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 	auto ControlledTank = GetPawn();
-	if (!ensure(PlayerTank && ControlledTank)) { return; }
+	if (!(PlayerTank && ControlledTank)) { return; }
 	
 	MoveToActor(PlayerTank, AcceptanceRadius);
 	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
