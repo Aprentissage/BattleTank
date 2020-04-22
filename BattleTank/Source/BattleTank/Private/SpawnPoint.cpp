@@ -24,7 +24,7 @@ void USpawnPoint::BeginPlay()
 	if (!NewActor) { return; }
 	NewActor->AttachToComponent(this, FAttachmentTransformRules::KeepWorldTransform);
 	UGameplayStatics::FinishSpawningActor(NewActor, GetComponentTransform());
-
+	
 }
 
 
